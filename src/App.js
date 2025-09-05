@@ -22,7 +22,8 @@ function App() {
   const fetchCustomer = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`http://localhost:8080/customer/customers`, {
+      //https://customer-backend-eq7y.onrender.com
+      const response = await fetch(`https://customer-backend-eq7y.onrender.com/customer/customers`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -54,7 +55,7 @@ function App() {
   };
 
   const handleSearch = async (query) => {
-    const response = await fetch(`http://localhost:8080/customer/search?query=${query}`, {
+    const response = await fetch(`https://customer-backend-eq7y.onrender.com/customer/search?query=${query}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

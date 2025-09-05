@@ -52,8 +52,10 @@ const AddCustomerModal = ({ show, onClose, onSuccess, customer }) => {
         let result;
         try {
             console.log(1);
-            const url = isEditing ? `http://localhost:8080/customer/update/${customer._id}`
-                : `http://localhost:8080/customer/add`;
+            //https://customer-backend-eq7y.onrender.com
+            //http://localhost:8080
+            const url = isEditing ? `https://customer-backend-eq7y.onrender.com/customer/update/${customer._id}`
+                : `https://customer-backend-eq7y.onrender.com/customer/add`;
 
             const response = await fetch(url, {
                 method: isEditing ? "PUT" : "POST",

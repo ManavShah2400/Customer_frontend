@@ -12,7 +12,8 @@ const DeleteCustomerModal = ({ show, onClose, onSuccess, customer }) => {
         if (!customer._id) return handleError("Customer id not selected. Please try again");
         let result;
         try {
-            const response = await fetch(`http://localhost:8080/customer/delete/${customer._id}`, {
+            //https://customer-backend-eq7y.onrender.com
+            const response = await fetch(`https://customer-backend-eq7y.onrender.com/customer/delete/${customer._id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
