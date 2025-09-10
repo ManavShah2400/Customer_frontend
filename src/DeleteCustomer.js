@@ -39,7 +39,7 @@ const DeleteCustomerModal = ({ show, onClose, onSuccess, customer }) => {
         <div className="modal-overlay">
             <div className="modal">
                 <h2>Delete Customer</h2>
-                <button type="button" className="btn" onClick={onClose}>Cancel</button>
+                <button type="button" className="edit btn" onClick={onClose}>Cancel</button>
                 <button type="button" className="del btn" onClick={handleDelete}>
                     {loading ? (
                         <span>

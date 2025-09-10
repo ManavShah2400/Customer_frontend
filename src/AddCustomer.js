@@ -9,6 +9,7 @@ const AddCustomerModal = ({ show, onClose, onSuccess, customer }) => {
     const [address, setaddress] = useState('');
     const [licenseNumber, setlicenseNumber] = useState('');
     const [companyName, setcompanyName] = useState('');
+    const [bankName, setBankName] = useState('');
     const isEditing = !!customer;
 
     useEffect(() => {
@@ -18,6 +19,7 @@ const AddCustomerModal = ({ show, onClose, onSuccess, customer }) => {
             setaddress(customer.address || '');
             setlicenseNumber(customer.driver_license || '');
             setcompanyName(customer.company_name || '');
+            setBankName(customer.bank_name || '');
         } else {
             clearFields()
         }
@@ -29,6 +31,7 @@ const AddCustomerModal = ({ show, onClose, onSuccess, customer }) => {
         setaddress('');
         setlicenseNumber('');
         setcompanyName('');
+        setBankName('');
     }
 
     if (!show) return null;
@@ -67,7 +70,8 @@ const AddCustomerModal = ({ show, onClose, onSuccess, customer }) => {
                     phone_number: phoneNumber,
                     address: address,
                     driver_license: licenseNumber,
-                    company_name: companyName
+                    company_name: companyName,
+                    bank_name: bankName
                 })
             });
             console.log(2);
@@ -134,6 +138,7 @@ const AddCustomerModal = ({ show, onClose, onSuccess, customer }) => {
                             type="text"
                             placeholder="Enter License Number"
                             value={licenseNumber}
+                            maxLength={12}
                             pattern="[A-Za-z0-9]{6,13}"
                             onChange={(e) => setlicenseNumber(e.target.value)} />
                     </div>
@@ -146,6 +151,16 @@ const AddCustomerModal = ({ show, onClose, onSuccess, customer }) => {
                             value={companyName}
                             pattern="[A-Za-z ]{2,50}"
                             onChange={(e) => setcompanyName(e.target.value)} />
+                    </div>
+                    <div className="form-group">
+                        <label>Bank's Name</label>
+                        <input
+                            required
+                            type="text"
+                            placeholder="Enter Company's Name"
+                            value={bankName}
+                            pattern="[A-Za-z ]{2,50}"
+                            onChange={(e) => setBankName(e.target.value)} />
                     </div>
                     <button type="Submit" className="AddItemBtn">
                         {loading ? (

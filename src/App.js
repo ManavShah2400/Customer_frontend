@@ -104,6 +104,7 @@ function App() {
               <th>Address</th>
               <th>Driver's License</th>
               <th>Company's Name</th>
+              <th>Bank's Name</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -115,6 +116,7 @@ function App() {
                 <td>{item.address}</td>
                 <td>{item.driver_license}</td>
                 <td>{item.company_name}</td>
+                <td>{item.bank_name}</td>
                 <td>
                   <button
                     className='edit btn'
