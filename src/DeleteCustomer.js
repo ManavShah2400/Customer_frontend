@@ -33,7 +33,7 @@ const DeleteCustomerModal = ({ show, onClose, onSuccess, customer }) => {
         } catch (err) {
             console.log(err);
             handleError(err);
-        }
+        } finally { setLoading(false) }
     }
     return (
         <div className="modal-overlay">

@@ -113,7 +113,6 @@ const AddCustomerModal = ({ show, onClose, onSuccess, customer }) => {
                     <div className="form-group">
                         <label>Phone Number</label>
                         <input
-                            required
                             type="tel"
                             placeholder="Enter Number"
                             value={phoneNumber}
@@ -138,7 +137,7 @@ const AddCustomerModal = ({ show, onClose, onSuccess, customer }) => {
                             type="text"
                             placeholder="Enter License Number"
                             value={licenseNumber}
-                            maxLength={12}
+                            maxLength={13}
                             pattern="[A-Za-z0-9]{6,13}"
                             onChange={(e) => setlicenseNumber(e.target.value)} />
                     </div>
@@ -155,7 +154,6 @@ const AddCustomerModal = ({ show, onClose, onSuccess, customer }) => {
                     <div className="form-group">
                         <label>Bank's Name</label>
                         <input
-                            required
                             type="text"
                             placeholder="Enter Company's Name"
                             value={bankName}
