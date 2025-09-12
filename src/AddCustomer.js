@@ -40,15 +40,15 @@ const AddCustomerModal = ({ show, onClose, onSuccess, customer }) => {
         setLoading(true);
         e.preventDefault();
         console.log("tried to add new customer");
-        if (!fullName || !phoneNumber || !licenseNumber || !companyName) {
+        if (!fullName || !licenseNumber || !companyName) {
             console.log("0");
             return handleError("All fields are required")
         }
-        if (!/^\d{10}$/.test(phoneNumber)) {
+        if (phoneNumber && !/^\d{10}$/.test(phoneNumber)) {
             setLoading(false);
             return handleError("Phone number must be exactly 10 digits");
         }
-        if (!/^[A-Za-z0-9]{6,12}$/.test(licenseNumber)) {
+        if (!/^[A-Za-z0-9]{6,13}$/.test(licenseNumber)) {
             setLoading(false);
             return handleError("License number must be 6–12 alphanumeric characters");
         }
@@ -79,7 +79,7 @@ const AddCustomerModal = ({ show, onClose, onSuccess, customer }) => {
             const { message, success } = result;
             if (success) {
                 console.log(3);
-                handleSuccess(message);
+                // handleSuccess(message);
                 if (onSuccess) await onSuccess();
                 clearFields();
                 onClose();

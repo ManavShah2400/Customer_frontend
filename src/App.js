@@ -2,6 +2,8 @@ import './App.css';
 import AddCustomerModal from './AddCustomer';
 import DeleteCustomerModal from './DeleteCustomer';
 import React, { useState, useEffect } from 'react';
+import { ToastContainer } from 'react-toastify';
+import { handleSuccess } from './utils';
 
 function App() {
   const [showBox, setShowBox] = useState(false);
@@ -31,8 +33,9 @@ function App() {
       });
 
       const result = await response.json();
-
-      if (response.ok) {
+      const {message, success} = result;
+      if (success) {
+        // handleSuccess(message);
         setCustomer(result.data);
         console.log("Customer fetched:", result.data);
       } else {
@@ -149,6 +152,10 @@ function App() {
         onClose={handleClose}
         onSuccess={fetchCustomer}
         customer={selectedCustomer} />
+        <ToastContainer
+        position="top-center"
+        hideProgressBar={false}
+        newestOnTop={false} />
     </div>
   );
 }
